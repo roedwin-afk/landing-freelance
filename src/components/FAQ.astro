@@ -1,0 +1,41 @@
+// src/components/FAQ.astro
+---
+---
+<section class="faq-section section-padding">
+    <div class="container">
+        <h2 class="text-center">Preguntas Frecuentes</h2>
+        
+        <div class="faq-container">
+            <details open>
+                <summary>¿Necesito experiencia previa como freelancer?</summary>
+                <div class="faq-content">No, el programa está diseñado desde sus bases. Empezamos explicando los conceptos fundamentales de la plataforma, ideal para personas que nunca han ofrecido servicios digitales de forma independiente.</div>
+            </details>
+            
+            <details>
+                <summary>¿Es obligatorio hablar inglés avanzado?</summary>
+                <div class="faq-content">No es estrictamente obligatorio, aunque es una ventaja para acceder al mercado global. Dentro de la capacitación, abordamos cómo puedes apoyarte en herramientas de traducción para comunicarte de manera efectiva y profesional con clientes internacionales.</div>
+            </details>
+
+            <details>
+                <summary>¿Qué equipo necesito para empezar?</summary>
+                <div class="faq-content">Para la mayoría de los servicios digitales que se enseñan a estructurar, solo necesitarás una computadora (laptop o escritorio) con conexión estable a internet y la disposición para aprender y aplicar los conceptos.</div>
+            </details>
+
+            <details>
+                <summary>¿Cuándo y cómo recibo el acceso al curso?</summary>
+                <div class="faq-content">Al completar tu registro de forma segura a través de Hotmart, recibirás un correo electrónico de inmediato con tus credenciales (usuario y contraseña) para acceder al área de miembros, donde podrás ver las clases a tu propio ritmo.</div>
+            </details>
+        </div>
+    </div>
+</section>
+
+<style>
+    .faq-section { background-color: var(--color-surface); }
+    .faq-container { margin: var(--space-md) auto 0 auto; }
+    details { background-color: var(--color-bg); border: 1px solid #e2e8f0; border-radius: var(--radius-md); margin-bottom: var(--space-sm); overflow: hidden; }
+    summary { padding: var(--space-sm) var(--space-md); font-family: var(--font-heading); font-weight: 600; color: var(--color-primary); cursor: pointer; list-style: none; position: relative; user-select: none; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; position: absolute; right: var(--space-md); top: 50%; transform: translateY(-50%); font-size: 1.5rem; color: var(--color-secondary); }
+    details[open] summary::after { content: "-"; }
+    .faq-content { padding: 0 var(--space-md) var(--space-sm) var(--space-md); color: var(--color-text-muted); }
+</style>

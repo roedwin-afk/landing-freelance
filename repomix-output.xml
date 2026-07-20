@@ -1,0 +1,905 @@
+This file is a merged representation of the entire codebase, combined into a single document by Repomix.
+
+<file_summary>
+This section contains a summary of this file.
+
+<purpose>
+This file contains a packed representation of the entire repository's contents.
+It is designed to be easily consumable by AI systems for analysis, code review,
+or other automated processes.
+</purpose>
+
+<file_format>
+The content is organized as follows:
+1. This summary section
+2. Repository information
+3. Directory structure
+4. Repository files (if enabled)
+5. Multiple file entries, each consisting of:
+  - File path as an attribute
+  - Full contents of the file
+</file_format>
+
+<usage_guidelines>
+- This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+- When processing this file, use the file path to distinguish
+  between different files in the repository.
+- Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+</usage_guidelines>
+
+<notes>
+- Some files may have been excluded based on .gitignore rules and Repomix's configuration
+- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
+- Files matching patterns in .gitignore are excluded
+- Files matching default ignore patterns are excluded
+- Files are sorted by Git change count (files with more changes are at the bottom)
+</notes>
+
+</file_summary>
+
+<directory_structure>
+.gitignore
+.wrangler/deploy/config.json
+.wrangler/state/v3/cache/miniflare-CacheObject/metadata.sqlite
+.wrangler/state/v3/cache/miniflare-CacheObject/metadata.sqlite-shm
+.wrangler/state/v3/cache/miniflare-CacheObject/metadata.sqlite-wal
+.wrangler/state/v3/images/miniflare-images-KVNamespaceObject/metadata.sqlite
+.wrangler/state/v3/images/miniflare-images-KVNamespaceObject/metadata.sqlite-shm
+.wrangler/state/v3/images/miniflare-images-KVNamespaceObject/metadata.sqlite-wal
+.wrangler/state/v3/kv/miniflare-KVNamespaceObject/metadata.sqlite
+.wrangler/state/v3/kv/miniflare-KVNamespaceObject/metadata.sqlite-shm
+.wrangler/state/v3/kv/miniflare-KVNamespaceObject/metadata.sqlite-wal
+AGENTS.md
+astro.config.mjs
+CLAUDE.md
+package.json
+public/favicon.ico
+public/favicon.svg
+README.md
+src/components/Autoridad.astro
+src/components/CtaButton.astro
+src/components/CTAFinal.astro
+src/components/FAQ.astro
+src/components/Footer.astro
+src/components/Garantia.astro
+src/components/Hero.astro
+src/components/Modulos.astro
+src/components/Problema.astro
+src/components/Solucion.astro
+src/env.d.ts
+src/layouts/Layout.astro
+src/pages/api/capi.ts
+src/pages/index.astro
+tsconfig.json
+wrangler.jsonc
+wrangler.toml
+</directory_structure>
+
+<files>
+This section contains the contents of the repository's files.
+
+<file path=".wrangler/deploy/config.json">
+{"configPath":"..\\..\\dist\\server\\wrangler.json","auxiliaryWorkers":[],"prerenderWorkerConfigPath":"..\\..\\dist\\server\\.prerender\\wrangler.json"}
+</file>
+
+<file path="src/components/Autoridad.astro">
+// src/components/Autoridad.astro
+---
+import { Image } from 'astro:assets';
+// import autorImg from '../assets/autor.jpg'; // Descomentar al tener la imagen
+---
+<section class="authority-section section-padding">
+    <div class="container">
+        <div class="authority-content">
+            <div class="profile-img-wrapper">
+                <div class="img-placeholder" style="border-radius: var(--radius-lg); min-height: 250px; background-color: #334155; border-color: #475569; color: #94a3b8;">
+                    [FOTO: Tu retrato profesional pero casual. Sonriendo, mirando a la cámara. Transmitiendo autoridad y cercanía.]
+                    <!-- <Image src={autorImg} alt="Autor del curso" width={300} /> -->
+                </div>
+            </div>
+            <div class="authority-text">
+                <span class="eyebrow">Conoce a tu Guía</span>
+                <h2 style="margin-bottom: var(--space-sm); margin-top: 0.5rem;">Mi experiencia transformando habilidades en servicios</h2>
+                <p>Hola, soy [Tu Nombre]. Hace unos años, me encontraba buscando la manera de capitalizar mis conocimientos en tecnología y automatización de procesos (RPA).</p>
+                <p>Cuando descubrí Fiverr, me di cuenta del enorme potencial de empaquetar conocimientos técnicos en soluciones concretas que empresas de todo el mundo están buscando activamente. No fue un camino mágico; requirió entender la dinámica de la plataforma, optimizar la forma de presentar mis servicios y aprender a comunicarme con clientes internacionales.</p>
+                <p>En este programa, mi objetivo es compartir contigo esa misma estructura organizativa y estratégica. Quiero mostrarte cómo tú también puedes identificar tus fortalezas y utilizar esta herramienta para abrirte paso en el mercado digital de forma seria y profesional.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .authority-section { background-color: var(--color-surface); }
+    .authority-content { display: flex; flex-direction: column; gap: var(--space-md); align-items: center; background: var(--color-primary); color: white; padding: var(--space-md); border-radius: var(--radius-lg); }
+    .authority-content h2 { color: white; }
+    .authority-content p { color: #cbd5e1; }
+    .profile-img-wrapper { width: 100%; max-width: 300px; }
+    .eyebrow { color: var(--color-secondary-light); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.875rem; }
+    
+    @media (min-width: 768px) {
+        .authority-content { flex-direction: row; padding: var(--space-lg); text-align: left; }
+        .authority-text { flex: 2; }
+        .profile-img-wrapper { flex: 1; }
+    }
+</style>
+</file>
+
+<file path="src/components/CtaButton.astro">
+---
+interface Props {
+    text: string;
+    utmSrc: string;
+}
+
+const { text, utmSrc } = Astro.props;
+const baseUrl = import.meta.env.HOTMART_BASE_URL;
+const finalUrl = `${baseUrl}?src=${utmSrc}`;
+---
+
+<a href={finalUrl} class="btn-cta capi-trigger" data-url={finalUrl}>{text}</a>
+
+<style>
+    .btn-cta {
+        display: inline-block;
+        background-color: var(--color-accent);
+        color: #ffffff;
+        font-family: var(--font-heading);
+        font-weight: 700;
+        font-size: 1.125rem;
+        text-decoration: none;
+        padding: 1rem 2rem;
+        border-radius: 50px;
+        box-shadow: 0 4px 14px 0 rgba(245, 158, 11, 0.39);
+        transition: all 0.3s ease;
+        text-align: center;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+    }
+    .btn-cta:hover {
+        background-color: var(--color-accent-hover);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(245, 158, 11, 0.5);
+    }
+    @media (min-width: 768px) {
+        .btn-cta { width: auto; }
+    }
+</style>
+
+<script>
+    // Le indicamos a TypeScript que fbq existe globalmente
+    declare var fbq: any;
+
+    const buttons = document.querySelectorAll('.capi-trigger');
+    buttons.forEach(btn => {
+        btn.addEventListener('click', async (e) => {
+            e.preventDefault();
+            const targetUrl = btn.getAttribute('data-url');
+            
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'InitiateCheckout');
+            }
+
+            try {
+                await fetch('/api/capi', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ eventName: 'InitiateCheckout' })
+                });
+            } catch (err) {
+                console.error('CAPI Error', err);
+            }
+
+            if(targetUrl) window.location.href = targetUrl;
+        });
+    });
+</script>
+</file>
+
+<file path="src/components/CTAFinal.astro">
+---
+import CtaButton from './CtaButton.astro';
+---
+<section class="section-padding" style="background-color: var(--color-bg);">
+    <div class="container text-center">
+        <h2 style="margin-bottom: var(--space-md);">¿Listo para aprender la metodología?</h2>
+        <CtaButton text="Sí, Quiero Acceder a Fiverr Lite" utmSrc="footer_btn" />
+        <p style="font-size: 0.875rem; color: var(--color-text-muted); margin-top: var(--space-sm);">Pago 100% seguro y garantizado vía Hotmart.</p>
+    </div>
+</section>
+</file>
+
+<file path="src/components/FAQ.astro">
+// src/components/FAQ.astro
+---
+---
+<section class="faq-section section-padding">
+    <div class="container">
+        <h2 class="text-center">Preguntas Frecuentes</h2>
+        
+        <div class="faq-container">
+            <details open>
+                <summary>¿Necesito experiencia previa como freelancer?</summary>
+                <div class="faq-content">No, el programa está diseñado desde sus bases. Empezamos explicando los conceptos fundamentales de la plataforma, ideal para personas que nunca han ofrecido servicios digitales de forma independiente.</div>
+            </details>
+            
+            <details>
+                <summary>¿Es obligatorio hablar inglés avanzado?</summary>
+                <div class="faq-content">No es estrictamente obligatorio, aunque es una ventaja para acceder al mercado global. Dentro de la capacitación, abordamos cómo puedes apoyarte en herramientas de traducción para comunicarte de manera efectiva y profesional con clientes internacionales.</div>
+            </details>
+
+            <details>
+                <summary>¿Qué equipo necesito para empezar?</summary>
+                <div class="faq-content">Para la mayoría de los servicios digitales que se enseñan a estructurar, solo necesitarás una computadora (laptop o escritorio) con conexión estable a internet y la disposición para aprender y aplicar los conceptos.</div>
+            </details>
+
+            <details>
+                <summary>¿Cuándo y cómo recibo el acceso al curso?</summary>
+                <div class="faq-content">Al completar tu registro de forma segura a través de Hotmart, recibirás un correo electrónico de inmediato con tus credenciales (usuario y contraseña) para acceder al área de miembros, donde podrás ver las clases a tu propio ritmo.</div>
+            </details>
+        </div>
+    </div>
+</section>
+
+<style>
+    .faq-section { background-color: var(--color-surface); }
+    .faq-container { max-width: 800px; margin: var(--space-md) auto 0 auto; }
+    details { background-color: var(--color-bg); border: 1px solid #e2e8f0; border-radius: var(--radius-md); margin-bottom: var(--space-sm); overflow: hidden; }
+    summary { padding: var(--space-sm) var(--space-md); font-family: var(--font-heading); font-weight: 600; color: var(--color-primary); cursor: pointer; list-style: none; position: relative; user-select: none; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; position: absolute; right: var(--space-md); top: 50%; transform: translateY(-50%); font-size: 1.5rem; color: var(--color-secondary); }
+    details[open] summary::after { content: "-"; }
+    .faq-content { padding: 0 var(--space-md) var(--space-sm) var(--space-md); color: var(--color-text-muted); }
+</style>
+</file>
+
+<file path="src/components/Footer.astro">
+// src/components/Footer.astro
+---
+---
+<footer class="footer">
+    <div class="container">
+        <p>Este sitio no es parte del sitio web de Facebook o Meta Platforms, Inc. Además, este sitio NO está respaldado por Facebook de ninguna manera. FACEBOOK es una marca registrada de META PLATFORMS, Inc.</p>
+        <p>Los resultados discutidos en esta página representan una metodología educativa. Las referencias a desarrollo profesional y ventas son con fines de ejemplo y no representan una garantía de resultados o ganancias. Toda iniciativa de trabajo independiente requiere esfuerzo, tiempo y dedicación.</p>
+        <div class="footer-links">
+            <a href="#">Términos y Condiciones</a> | <a href="#">Políticas de Privacidad</a> | <a href="#">Descargo de Responsabilidad</a>
+        </div>
+        <p class="copyright">&copy; 2026 Todos los derechos reservados.</p>
+    </div>
+</footer>
+
+<style>
+    .footer { background-color: var(--color-primary); color: #94a3b8; padding: var(--space-md) 0; text-align: center; font-size: 0.875rem; }
+    .footer a { color: #cbd5e1; text-decoration: underline; }
+    .footer-links { margin-top: var(--space-md); }
+    .copyright { margin-top: var(--space-sm); font-size: 0.75rem; color: #475569; }
+</style>
+</file>
+
+<file path="src/components/Garantia.astro">
+// src/components/Garantia.astro
+---
+---
+<section class="guarantee-section section-padding">
+    <div class="container">
+        <div class="guarantee-box">
+            <div class="badge-icon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    <polyline points="9 12 11 14 15 10"></polyline>
+                </svg>
+            </div>
+            <h2 style="margin-bottom: var(--space-sm);">Explora sin Riesgo: Garantía de 7 Días</h2>
+            <p style="margin-bottom: 0;">Queremos que tu experiencia educativa sea 100% segura. Tienes 7 días completos desde tu inscripción para explorar todo el contenido de <strong>Fiverr Freelance Lite</strong>. Si después de revisar los módulos consideras que la metodología no se adapta a tu perfil o expectativas, puedes solicitar el reembolso completo de tu inscripción directamente a través de la plataforma de Hotmart, sin complicaciones.</p>
+        </div>
+    </div>
+</section>
+
+<style>
+    .guarantee-section { background-color: var(--color-bg); text-align: center; }
+    .guarantee-box { border: 2px solid var(--color-secondary); background-color: var(--color-surface); padding: var(--space-lg) var(--space-md); border-radius: var(--radius-md); max-width: 800px; margin: 0 auto; position: relative; }
+    .badge-icon { width: 60px; height: 60px; background: var(--color-secondary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: -60px auto var(--space-sm) auto; border: 4px solid var(--color-surface); }
+</style>
+</file>
+
+<file path="src/components/Hero.astro">
+---
+import { Image } from 'astro:assets';
+import CtaButton from './CtaButton.astro';
+// IMPORTANTE: Descomenta e importa tu imagen real cuando la tengas
+// import heroImg from '../assets/hero-mockup.png';
+---
+
+<header class="hero section-padding">
+    <div class="container hero-grid">
+        <div class="hero-content">
+            <span class="eyebrow">Educación Digital</span>
+            <h1>Descubre los Fundamentos para Ofrecer tus Servicios Digitales al Mundo</h1>
+            <p>Aprende paso a paso cómo utilizar plataformas como Fiverr para iniciar tu camino freelance y explorar nuevas alternativas de desarrollo profesional desde casa, sin experiencia previa.</p>
+            
+            <CtaButton text="Quiero Conocer el Método" utmSrc="hero_btn" />
+            <p class="sub-cta">Acceso inmediato al programa completo</p>
+        </div>
+        <div class="hero-visual">
+            <div class="img-placeholder hero-placeholder">
+                [FOTO: Mockup de alta calidad mostrando el curso en una Laptop y un Smartphone]
+                <!-- <Image src={heroImg} alt="Curso Freelance Lite Mockup" width={600} /> -->
+            </div>
+        </div>
+    </div>
+</header>
+
+<style>
+    .hero { background-color: var(--color-primary); color: #ffffff; padding: var(--space-xl) 0 var(--space-lg) 0; position: relative; overflow: hidden; }
+    .eyebrow { color: var(--color-secondary-light); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.875rem; display: block; margin-bottom: 0.5rem; }
+    .hero h1 { color: #ffffff; font-size: 2rem; margin-bottom: var(--space-md); }
+    .hero p { color: #94a3b8; font-size: 1.125rem; margin-bottom: var(--space-md); }
+    .sub-cta { font-size: 0.75rem; margin-top: 0.5rem; color: #64748b; text-align: center; }
+    .hero-grid { display: flex; flex-direction: column; gap: var(--space-lg); }
+    .hero-placeholder { min-height: 400px; background-color: #1e293b; border-color: #334155; }
+    
+    @media (min-width: 768px) {
+        .hero h1 { font-size: 3rem; }
+        .hero-grid { flex-direction: row; align-items: center; }
+        .hero-content, .hero-visual { flex: 1; }
+    }
+</style>
+</file>
+
+<file path="src/components/Modulos.astro">
+---
+import CtaButton from './CtaButton.astro';
+---
+<section class="section-padding">
+    <div class="container">
+        <div class="text-center">
+            <h2 style="margin-bottom: var(--space-sm);">¿Qué descubrirás en este programa?</h2>
+            <p style="max-width: 600px; margin: 0 auto;">Un recorrido estructurado paso a paso, diseñado específicamente para quienes dan sus primeros pasos en el ecosistema freelance.</p>
+        </div>
+
+        <div class="modules-grid">
+            <div class="module-card">
+                <div class="module-icon">1</div>
+                <div>
+                    <h3>Fundamentos y Mindset</h3>
+                    <p>Entiende cómo funciona la plataforma por dentro y desarrolla la mentalidad adecuada para gestionar tus propios servicios.</p>
+                </div>
+            </div>
+            <div class="module-card">
+                <div class="module-icon">2</div>
+                <div>
+                    <h3>Creación de Perfil Atractivo</h3>
+                    <p>Aprende a estructurar tu biografía, foto y descripción para transmitir confianza a clientes potenciales de todo el mundo.</p>
+                </div>
+            </div>
+            <div class="module-card">
+                <div class="module-icon">3</div>
+                <div>
+                    <h3>Identificación de Habilidades</h3>
+                    <p>Descubre cómo transformar lo que ya sabes hacer (o lo que puedes aprender rápido) en servicios digitales empaquetados ("Gigs").</p>
+                </div>
+            </div>
+            <div class="module-card">
+                <div class="module-icon">4</div>
+                <div>
+                    <h3>Estructura de Gigs</h3>
+                    <p>El método paso a paso para titular, describir y establecer precios a tus servicios de manera clara y competitiva.</p>
+                </div>
+            </div>
+            <div class="module-card">
+                <div class="module-icon">5</div>
+                <div>
+                    <h3>Atención al Cliente</h3>
+                    <p>Técnicas de comunicación efectiva para responder mensajes, negociar requerimientos y asegurar la satisfacción del usuario.</p>
+                </div>
+            </div>
+            <div class="module-card">
+                <div class="module-icon">6</div>
+                <div>
+                    <h3>Entrega y Escalado Básico</h3>
+                    <p>Cómo organizar tus entregas a tiempo y estrategias iniciales para conseguir tus primeras reseñas positivas.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center" style="margin-top: var(--space-lg);">
+            <CtaButton text="Inscribirme al Programa Ahora" utmSrc="modulos_btn" />
+        </div>
+    </div>
+</section>
+
+<style>
+    .modules-grid { display: grid; grid-template-columns: 1fr; gap: var(--space-sm); margin-top: var(--space-md); }
+    .module-card { background: var(--color-surface); border: 1px solid #e2e8f0; padding: var(--space-md); border-radius: var(--radius-md); display: flex; gap: var(--space-sm); align-items: flex-start; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    .module-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+    .module-icon { background: var(--color-secondary-light); color: var(--color-secondary); width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1.5rem; font-weight: bold; }
+    .module-card h3 { font-size: 1.125rem; margin-bottom: 0.25rem; }
+    .module-card p { font-size: 0.9rem; margin: 0; color: var(--color-text-muted); }
+    
+    @media (min-width: 768px) {
+        .modules-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+</style>
+</file>
+
+<file path="src/components/Problema.astro">
+// src/components/Problema.astro
+---
+---
+<section class="problem-section section-padding">
+    <div class="container">
+        <div class="text-center" style="max-width: 800px; margin: 0 auto;">
+            <h2 style="margin-bottom: var(--space-sm);">El escenario actual exige nuevas alternativas</h2>
+            <p>El mercado laboral está cambiando rápidamente. Hoy en día, depender de un solo enfoque tradicional puede limitar tus opciones de crecimiento y flexibilidad.</p>
+        </div>
+        
+        <div class="problem-grid">
+            <div class="problem-card">
+                <h3>Evolución del Trabajo</h3>
+                <p>El modelo tradicional presencial ya no es la única vía. El mundo digital ofrece alternativas válidas para profesionales y principiantes.</p>
+            </div>
+            <div class="problem-card">
+                <h3>Búsqueda de Flexibilidad</h3>
+                <p>Cada vez más personas buscan la autonomía para gestionar sus propios proyectos y organizar sus horarios de forma independiente.</p>
+            </div>
+            <div class="problem-card">
+                <h3>Barreras Geográficas</h3>
+                <p>Limitarse al mercado local reduce las oportunidades. El internet permite conectar tus habilidades con necesidades a nivel global.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .problem-section { background-color: var(--color-surface); }
+    .problem-grid { display: grid; grid-template-columns: 1fr; gap: var(--space-md); margin-top: var(--space-md); }
+    .problem-card { background: var(--color-bg); padding: var(--space-md); border-radius: var(--radius-md); border-left: 4px solid var(--color-secondary); }
+    .problem-card h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
+    .problem-card p { font-size: 0.95rem; color: var(--color-text-muted); margin: 0; }
+    
+    @media (min-width: 768px) {
+        .problem-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+</style>
+</file>
+
+<file path="src/components/Solucion.astro">
+// src/components/Solucion.astro
+---
+import { Image } from 'astro:assets';
+// import solucionImg from '../assets/solucion.jpg'; // Descomentar al tener la imagen
+---
+<section class="solution-section section-padding">
+    <div class="container solution-grid">
+        <div class="solution-visual">
+            <div class="img-placeholder" style="background-color: #ccfbf1; border-color: #5eead4; color: var(--color-secondary);">
+                [FOTO: Persona joven, relajada trabajando en una laptop desde su casa o un café, transmitiendo tranquilidad y enfoque]
+                <!-- <Image src={solucionImg} alt="Trabajando desde casa" width={500} /> -->
+            </div>
+        </div>
+        <div class="solution-content">
+            <h2 style="margin-bottom: var(--space-sm);">Fiverr: Tu Puente Hacia el Mercado Internacional</h2>
+            <p>Fiverr es una de las plataformas líderes a nivel mundial que conecta talento independiente con personas y empresas que requieren servicios digitales.</p>
+            <p><strong>¿Por qué es ideal para iniciar?</strong> No necesitas construir un sitio web complejo, ni invertir capital en publicidad costosa. La plataforma te brinda la infraestructura, el tráfico de usuarios y la seguridad en los pagos, permitiéndote enfocarte únicamente en entregar un buen servicio.</p>
+            <p>El programa <em>Fiverr Freelance Lite</em> está diseñado para acortar tu curva de aprendizaje y mostrarte cómo estructurar tu perfil correctamente desde el día uno.</p>
+        </div>
+    </div>
+</section>
+
+<style>
+    .solution-section { background-color: var(--color-secondary-light); }
+    .solution-grid { display: flex; flex-direction: column; gap: var(--space-md); align-items: center; }
+    @media (min-width: 768px) {
+        .solution-grid { flex-direction: row; }
+        .solution-content, .solution-visual { flex: 1; }
+    }
+</style>
+</file>
+
+<file path="src/env.d.ts">
+// src/env.d.ts
+/// <reference types="astro/client" />
+
+interface ImportMetaEnv {
+  readonly META_PIXEL_ID: string;
+  readonly META_ACCESS_TOKEN: string;
+  readonly HOTMART_BASE_URL: string;
+}
+
+interface ImportMeta {
+  readonly env: ImportMetaEnv;
+}
+</file>
+
+<file path="src/layouts/Layout.astro">
+---
+interface Props {
+	title: string;
+	description: string;
+	image?: string;
+}
+
+const { title, description, image = '/og-image.jpg' } = Astro.props;
+const pixelId = import.meta.env.META_PIXEL_ID;
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>{title}</title>
+		
+		<meta name="description" content={description} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={new URL(image, Astro.url)} />
+		<meta property="og:type" content="website" />
+		<meta property="og:locale" content="es_ES" />
+
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet" />
+
+		{pixelId && (
+			<script is:inline define:vars={{ pixelId }}>
+				!function(f,b,e,v,n,t,s)
+				{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+				n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+				if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+				n.queue=[];t=b.createElement(e);t.async=!0;
+				t.src=v;s=b.getElementsByTagName(e)[0];
+				s.parentNode.insertBefore(t,s)}(window, document,'script',
+				'https://connect.facebook.net/en_US/fbevents.js');
+				fbq('init', pixelId);
+				fbq('track', 'PageView');
+			</script>
+			<noscript><img height="1" width="1" style="display:none" src={`https://www.facebook.com/tr?id=${pixelId}&ev=PageView&noscript=1`} /></noscript>
+		)}
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
+
+<style is:global>
+	:root {
+		--color-primary: #0f172a;
+		--color-secondary: #0f766e;
+		--color-secondary-light: #f0fdfa;
+		--color-accent: #f59e0b;
+		--color-accent-hover: #d97706;
+		--color-bg: #f8fafc;
+		--color-surface: #ffffff;
+		--color-text-main: #334155;
+		--color-text-muted: #64748b;
+		
+		--font-heading: 'Montserrat', sans-serif;
+		--font-body: 'Inter', sans-serif;
+		
+		--space-xs: 0.5rem;
+		--space-sm: 1rem;
+		--space-md: 2rem;
+		--space-lg: 3rem;
+		--space-xl: 4rem;
+		
+		--radius-md: 12px;
+		--radius-lg: 24px;
+		--shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+		--shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+		--shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+	}
+
+	* { margin: 0; padding: 0; box-sizing: border-box; }
+	body { font-family: var(--font-body); color: var(--color-text-main); background-color: var(--color-bg); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+	h1, h2, h3, h4 { font-family: var(--font-heading); color: var(--color-primary); line-height: 1.2; }
+	p { margin-bottom: var(--space-sm); }
+
+	.container { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 var(--space-sm); }
+	.section-padding { padding: var(--space-lg) 0; }
+	.text-center { text-align: center; }
+	.text-primary { color: var(--color-primary); }
+	.text-secondary { color: var(--color-secondary); }
+	
+	.img-placeholder { background-color: #e2e8f0; border: 2px dashed #cbd5e1; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; color: var(--color-text-muted); font-weight: 600; font-size: 0.875rem; min-height: 300px; width: 100%; padding: var(--space-md); text-align: center; }
+
+	@media (min-width: 768px) {
+		:root { --space-lg: 5rem; --space-xl: 6rem; }
+		.container { padding: 0 var(--space-lg); }
+	}
+</style>
+</file>
+
+<file path="src/pages/api/capi.ts">
+// src/pages/api/capi.ts
+import type { APIRoute } from 'astro';
+
+export const POST: APIRoute = async ({ request }) => {
+    const pixelId = import.meta.env.META_PIXEL_ID;
+    const token = import.meta.env.META_ACCESS_TOKEN;
+    const testEventCode = import.meta.env.META_TEST_EVENT_CODE; // Espacio para configuración futura
+    
+    if (!pixelId || !token) {
+        return new Response(JSON.stringify({ error: 'Faltan credenciales CAPI' }), { status: 500 });
+    }
+
+    try {
+        const body = await request.json();
+        const eventName = body.eventName || 'InitiateCheckout';
+        const eventSourceUrl = request.headers.get('referer') || '';
+        const clientIp = request.headers.get('x-forwarded-for') || request.headers.get('cf-connecting-ip') || '';
+        const userAgent = request.headers.get('user-agent') || '';
+
+        const payload: any = {
+            data: [
+                {
+                    event_name: eventName,
+                    event_time: Math.floor(Date.now() / 1000),
+                    action_source: 'website',
+                    event_source_url: eventSourceUrl,
+                    user_data: {
+                        client_ip_address: clientIp,
+                        client_user_agent: userAgent
+                    }
+                }
+            ]
+        };
+
+        // Si existe el código de prueba en las variables de entorno, lo inyecta en el payload
+        if (testEventCode) {
+            payload.test_event_code = testEventCode;
+        }
+
+        const response = await fetch(`https://graph.facebook.com/v19.0/${pixelId}/events?access_token=${token}`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        });
+
+        const data = await response.json();
+        return new Response(JSON.stringify(data), { status: response.ok ? 200 : 400 });
+    } catch (error) {
+        return new Response(JSON.stringify({ error: 'Error interno CAPI' }), { status: 500 });
+    }
+};
+</file>
+
+<file path="wrangler.jsonc">
+{
+	"$schema": "./node_modules/wrangler/config-schema.json",
+	"compatibility_date": "2026-07-20",
+	"compatibility_flags": ["global_fetch_strictly_public"],
+	"name": "landing-freelance",
+	"main": "@astrojs/cloudflare/entrypoints/server",
+	"assets": {
+		"directory": "./dist",
+		"binding": "ASSETS"
+	},
+	"observability": {
+		"enabled": true
+	}
+}
+</file>
+
+<file path="wrangler.toml">
+name = "landing-freelance"
+compatibility_date = "2024-03-20"
+compatibility_flags = ["nodejs_compat"]
+pages_build_output_dir = "dist"
+</file>
+
+<file path=".gitignore">
+# build output
+dist/
+# generated types
+.astro/
+
+# dependencies
+node_modules/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+
+# environment variables
+.env
+.env.production
+
+# macOS-specific files
+.DS_Store
+
+# jetbrains setting folder
+.idea/
+</file>
+
+<file path="AGENTS.md">
+## Development
+
+When starting the dev server, use background mode:
+
+```
+astro dev --background
+```
+
+Manage the background server with `astro dev stop`, `astro dev status`, and `astro dev logs`.
+
+## Documentation
+
+Full documentation: https://docs.astro.build
+
+Consult these guides before working on related tasks:
+
+- [Adding pages, dynamic routes, or middleware](https://docs.astro.build/en/guides/routing/)
+- [Working with Astro components](https://docs.astro.build/en/basics/astro-components/)
+- [Using React, Vue, Svelte, or other framework components](https://docs.astro.build/en/guides/framework-components/)
+- [Adding or managing content](https://docs.astro.build/en/guides/content-collections/)
+- [Adding styles or using Tailwind](https://docs.astro.build/en/guides/styling/)
+- [Supporting multiple languages](https://docs.astro.build/en/guides/internationalization/)
+</file>
+
+<file path="astro.config.mjs">
+import { defineConfig } from 'astro/config';
+import cloudflare from '@astrojs/cloudflare';
+
+export default defineConfig({
+  output: 'server',
+  adapter: cloudflare()
+});
+</file>
+
+<file path="CLAUDE.md">
+## Development
+
+When starting the dev server, use background mode:
+
+```
+astro dev --background
+```
+
+Manage the background server with `astro dev stop`, `astro dev status`, and `astro dev logs`.
+
+## Documentation
+
+Full documentation: https://docs.astro.build
+
+Consult these guides before working on related tasks:
+
+- [Adding pages, dynamic routes, or middleware](https://docs.astro.build/en/guides/routing/)
+- [Working with Astro components](https://docs.astro.build/en/basics/astro-components/)
+- [Using React, Vue, Svelte, or other framework components](https://docs.astro.build/en/guides/framework-components/)
+- [Adding or managing content](https://docs.astro.build/en/guides/content-collections/)
+- [Adding styles or using Tailwind](https://docs.astro.build/en/guides/styling/)
+- [Supporting multiple languages](https://docs.astro.build/en/guides/internationalization/)
+</file>
+
+<file path="package.json">
+{
+  "name": "landing-freelance",
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "generate-types": "wrangler types"
+  },
+  "dependencies": {
+    "@astrojs/cloudflare": "^14.1.3",
+    "astro": "^7.1.2",
+    "wrangler": "^4.112.0"
+  }
+}
+</file>
+
+<file path="public/favicon.svg">
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 128 128">
+    <path d="M50.4 78.5a75.1 75.1 0 0 0-28.5 6.9l24.2-65.7c.7-2 1.9-3.2 3.4-3.2h29c1.5 0 2.7 1.2 3.4 3.2l24.2 65.7s-11.6-7-28.5-7L67 45.5c-.4-1.7-1.6-2.8-2.9-2.8-1.3 0-2.5 1.1-2.9 2.7L50.4 78.5Zm-1.1 28.2Zm-4.2-20.2c-2 6.6-.6 15.8 4.2 20.2a17.5 17.5 0 0 1 .2-.7 5.5 5.5 0 0 1 5.7-4.5c2.8.1 4.3 1.5 4.7 4.7.2 1.1.2 2.3.2 3.5v.4c0 2.7.7 5.2 2.2 7.4a13 13 0 0 0 5.7 4.9v-.3l-.2-.3c-1.8-5.6-.5-9.5 4.4-12.8l1.5-1a73 73 0 0 0 3.2-2.2 16 16 0 0 0 6.8-11.4c.3-2 .1-4-.6-6l-.8.6-1.6 1a37 37 0 0 1-22.4 2.7c-5-.7-9.7-2-13.2-6.2Z" />
+    <style>
+        path { fill: #000; }
+        @media (prefers-color-scheme: dark) {
+            path { fill: #FFF; }
+        }
+    </style>
+</svg>
+</file>
+
+<file path="README.md">
+# Astro Starter Kit: Minimal
+
+```sh
+npm create astro@latest -- --template minimal
+```
+
+> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+
+## 🚀 Project Structure
+
+Inside of your Astro project, you'll see the following folders and files:
+
+```text
+/
+├── public/
+├── src/
+│   └── pages/
+│       └── index.astro
+└── package.json
+```
+
+Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+
+There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+
+Any static assets, like images, can be placed in the `public/` directory.
+
+## 🧞 Commands
+
+All commands are run from the root of the project, from a terminal:
+
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `npm install`             | Installs dependencies                            |
+| `npm run dev`             | Starts local dev server at `localhost:4321`      |
+| `npm run build`           | Build your production site to `./dist/`          |
+| `npm run preview`         | Preview your build locally, before deploying     |
+| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `npm run astro -- --help` | Get help using the Astro CLI                     |
+
+## 👀 Want to learn more?
+
+Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+</file>
+
+<file path="src/pages/index.astro">
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Problema from '../components/Problema.astro';
+import Solucion from '../components/Solucion.astro';
+import Modulos from '../components/Modulos.astro';
+import Autoridad from '../components/Autoridad.astro';
+import Garantia from '../components/Garantia.astro';
+import FAQ from '../components/FAQ.astro';
+import CTAFinal from '../components/CTAFinal.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout 
+	title="Fundamentos Freelance Lite | Inicia tu Camino Digital" 
+	description="Aprende paso a paso cómo ofrecer tus servicios digitales al mundo y construir tu perfil profesional de forma independiente."
+>
+	<Hero />
+	<Problema />
+	<Solucion />
+	<Modulos />
+	<Autoridad />
+	<Garantia />
+	<FAQ />
+	<CTAFinal />
+	<Footer />
+</Layout>
+</file>
+
+<file path="tsconfig.json">
+{
+  "extends": "astro/tsconfigs/strict",
+  "include": [
+    ".astro/types.d.ts",
+    "**/*",
+    "./worker-configuration.d.ts"
+  ],
+  "exclude": [
+    "dist"
+  ]
+}
+</file>
+
+</files>

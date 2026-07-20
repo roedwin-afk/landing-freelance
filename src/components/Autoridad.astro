@@ -1,0 +1,39 @@
+// src/components/Autoridad.astro
+---
+import { Image } from 'astro:assets';
+// import autorImg from '../assets/autor.jpg'; // Descomentar al tener la imagen
+---
+<section class="authority-section section-padding">
+    <div class="container">
+        <div class="authority-content">
+            <div class="profile-img-wrapper">
+                <div class="img-placeholder" style="border-radius: var(--radius-lg); min-height: 250px; background-color: #334155; border-color: #475569; color: #94a3b8;">
+                    [FOTO: Tu retrato profesional pero casual. Sonriendo, mirando a la cámara. Transmitiendo autoridad y cercanía.]
+                    <!-- <Image src={autorImg} alt="Autor del curso" width={300} /> -->
+                </div>
+            </div>
+            <div class="authority-text">
+                <span class="eyebrow">Conoce a tu Guía</span>
+                <h2 style="margin-bottom: var(--space-sm); margin-top: 0.5rem;">Mi experiencia transformando habilidades en servicios</h2>
+                <p>Hola, soy [Tu Nombre]. Hace unos años, me encontraba buscando la manera de capitalizar mis conocimientos en tecnología y automatización de procesos (RPA).</p>
+                <p>Cuando descubrí Fiverr, me di cuenta del enorme potencial de empaquetar conocimientos técnicos en soluciones concretas que empresas de todo el mundo están buscando activamente. No fue un camino mágico; requirió entender la dinámica de la plataforma, optimizar la forma de presentar mis servicios y aprender a comunicarme con clientes internacionales.</p>
+                <p>En este programa, mi objetivo es compartir contigo esa misma estructura organizativa y estratégica. Quiero mostrarte cómo tú también puedes identificar tus fortalezas y utilizar esta herramienta para abrirte paso en el mercado digital de forma seria y profesional.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .authority-section { background-color: var(--color-surface); }
+    .authority-content { display: flex; flex-direction: column; gap: var(--space-md); align-items: center; background: var(--color-primary); color: white; padding: var(--space-md); border-radius: var(--radius-lg); }
+    .authority-content h2 { color: white; }
+    .authority-content p { color: #cbd5e1; }
+    .profile-img-wrapper { width: 100%; max-width: 300px; }
+    .eyebrow { color: var(--color-secondary-light); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.875rem; }
+    
+    @media (min-width: 768px) {
+        .authority-content { flex-direction: row; padding: var(--space-lg); text-align: left; }
+        .authority-text { flex: 2; }
+        .profile-img-wrapper { flex: 1; }
+    }
+</style>

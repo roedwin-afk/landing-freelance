@@ -1,0 +1,69 @@
+---
+interface Props {
+    text: string;
+    utmSrc: string;
+}
+
+const { text, utmSrc } = Astro.props;
+const baseUrl = import.meta.env.HOTMART_BASE_URL;
+const finalUrl = `${baseUrl}?src=${utmSrc}`;
+---
+
+<a href={finalUrl} class="btn-cta capi-trigger" data-url={finalUrl}>{text}</a>
+
+<style>
+    .btn-cta {
+        display: inline-block;
+        background-color: var(--color-accent);
+        color: #ffffff;
+        font-family: var(--font-heading);
+        font-weight: 700;
+        font-size: 1.125rem;
+        text-decoration: none;
+        padding: 1rem 2rem;
+        border-radius: 50px;
+        box-shadow: 0 4px 14px 0 rgba(245, 158, 11, 0.39);
+        transition: all 0.3s ease;
+        text-align: center;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+    }
+    .btn-cta:hover {
+        background-color: var(--color-accent-hover);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(245, 158, 11, 0.5);
+    }
+    @media (min-width: 768px) {
+        .btn-cta { width: auto; }
+    }
+</style>
+
+<script>
+    // Le indicamos a TypeScript que fbq existe globalmente
+    declare var fbq: any;
+
+    const buttons = document.querySelectorAll('.capi-trigger');
+    buttons.forEach(btn => {
+        btn.addEventListener('click', async (e) => {
+            e.preventDefault();
+            const targetUrl = btn.getAttribute('data-url');
+            
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'InitiateCheckout');
+            }
+
+            try {
+                await fetch('/api/capi', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ eventName: 'InitiateCheckout' })
+                });
+            } catch (err) {
+                console.error('CAPI Error', err);
+            }
+
+            if(targetUrl) window.location.href = targetUrl;
+        });
+    });
+</script>

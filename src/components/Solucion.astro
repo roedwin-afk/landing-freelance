@@ -1,0 +1,29 @@
+---
+import { Image } from 'astro:assets';
+// import solucionImg from '../assets/solucion.jpg'; // Descomentar al tener la imagen
+---
+<section class="solution-section section-padding">
+    <div class="container solution-grid">
+        <div class="solution-visual">
+            <div class="img-placeholder" style="background-color: #ccfbf1; border-color: #5eead4; color: var(--color-secondary);">
+                [FOTO: Persona joven, relajada trabajando en una laptop desde su casa o un café, transmitiendo tranquilidad y enfoque]
+                <!-- <Image src={solucionImg} alt="Trabajando desde casa" width={500} /> -->
+            </div>
+        </div>
+        <div class="solution-content">
+            <h2 style="margin-bottom: var(--space-sm);">Fiverr: Tu Puente Hacia el Mercado Internacional</h2>
+            <p>Fiverr es una de las plataformas líderes a nivel mundial que conecta talento independiente con personas y empresas que requieren servicios digitales.</p>
+            <p><strong>¿Por qué es ideal para iniciar?</strong> No necesitas construir un sitio web complejo, ni invertir capital en publicidad costosa. La plataforma te brinda la infraestructura, el tráfico de usuarios y la seguridad en los pagos, permitiéndote enfocarte únicamente en entregar un buen servicio.</p>
+            <p>El programa <em>Fiverr Freelance Lite</em> está diseñado para acortar tu curva de aprendizaje y mostrarte cómo estructurar tu perfil correctamente desde el día uno.</p>
+        </div>
+    </div>
+</section>
+
+<style>
+    .solution-section { background-color: var(--color-secondary-light); }
+    .solution-grid { display: flex; flex-direction: column; gap: var(--space-md); align-items: center; }
+    @media (min-width: 768px) {
+        .solution-grid { flex-direction: row; }
+        .solution-content, .solution-visual { flex: 1; }
+    }
+</style>

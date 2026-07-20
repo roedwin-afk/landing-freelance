@@ -1,0 +1,96 @@
+---
+interface Props {
+	title: string;
+	description: string;
+	image?: string;
+}
+
+const { title, description, image = '/og-image.jpg' } = Astro.props;
+const pixelId = import.meta.env.META_PIXEL_ID;
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>{title}</title>
+		
+		<meta name="description" content={description} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={new URL(image, Astro.url)} />
+		<meta property="og:type" content="website" />
+		<meta property="og:locale" content="es_ES" />
+
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet" />
+
+		{pixelId && (
+			<script is:inline define:vars={{ pixelId }}>
+				!function(f,b,e,v,n,t,s)
+				{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+				n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+				if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+				n.queue=[];t=b.createElement(e);t.async=!0;
+				t.src=v;s=b.getElementsByTagName(e)[0];
+				s.parentNode.insertBefore(t,s)}(window, document,'script',
+				'https://connect.facebook.net/en_US/fbevents.js');
+				fbq('init', pixelId);
+				fbq('track', 'PageView');
+			</script>
+			<noscript><img height="1" width="1" style="display:none" src={`https://www.facebook.com/tr?id=${pixelId}&ev=PageView&noscript=1`} /></noscript>
+		)}
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
+
+<style is:global>
+	:root {
+		--color-primary: #0f172a;
+		--color-secondary: #0f766e;
+		--color-secondary-light: #f0fdfa;
+		--color-accent: #f59e0b;
+		--color-accent-hover: #d97706;
+		--color-bg: #f8fafc;
+		--color-surface: #ffffff;
+		--color-text-main: #334155;
+		--color-text-muted: #64748b;
+		
+		--font-heading: 'Montserrat', sans-serif;
+		--font-body: 'Inter', sans-serif;
+		
+		--space-xs: 0.5rem;
+		--space-sm: 1rem;
+		--space-md: 2rem;
+		--space-lg: 3rem;
+		--space-xl: 4rem;
+		
+		--radius-md: 12px;
+		--radius-lg: 24px;
+		--shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+		--shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+		--shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+	}
+
+	* { margin: 0; padding: 0; box-sizing: border-box; }
+	body { font-family: var(--font-body); color: var(--color-text-main); background-color: var(--color-bg); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+	h1, h2, h3, h4 { font-family: var(--font-heading); color: var(--color-primary); line-height: 1.2; }
+	p { margin-bottom: var(--space-sm); }
+
+	.container { width: 100%; max-width: 1300px; margin: 0 auto; padding: 0 var(--space-sm); }
+	.section-padding { padding: var(--space-lg) 0; }
+	.text-center { text-align: center; }
+	.text-primary { color: var(--color-primary); }
+	.text-secondary { color: var(--color-secondary); }
+	
+	.img-placeholder { background-color: #e2e8f0; border: 2px dashed #cbd5e1; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; color: var(--color-text-muted); font-weight: 600; font-size: 0.875rem; min-height: 300px; width: 100%; padding: var(--space-md); text-align: center; }
+
+	@media (min-width: 768px) {
+		:root { --space-lg: 5rem; --space-xl: 6rem; }
+		.container { padding: 0 var(--space-lg); }
+	}
+</style>

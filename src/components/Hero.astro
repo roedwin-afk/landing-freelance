@@ -1,0 +1,40 @@
+---
+import { Image } from 'astro:assets';
+import CtaButton from './CtaButton.astro';
+import heroImg from '../assets/hero-mockup.png';
+---
+
+<header class="hero section-padding">
+    <div class="container hero-grid">
+        <div class="hero-content">
+            <span class="eyebrow">Educación Digital</span>
+            <h1>Descubre los Fundamentos para Ofrecer tus Servicios Digitales al Mundo</h1>
+            <p>Aprende paso a paso cómo utilizar plataformas como Fiverr para iniciar tu camino freelance y explorar nuevas alternativas de desarrollo profesional desde casa, sin experiencia previa.</p>
+            
+            <CtaButton text="Quiero Conocer el Método" utmSrc="hero_btn" />
+            <p class="sub-cta">Acceso inmediato al programa completo</p>
+        </div>
+        <div class="hero-visual">
+            <div class="img-placeholder hero-placeholder">
+                <!-- [FOTO: Mockup de alta calidad mostrando el curso en una Laptop y un Smartphone] -->
+                <Image src={heroImg} alt="Curso Freelance Lite Mockup" width={600} />
+            </div>
+        </div>
+    </div>
+</header>
+
+<style>
+    .hero { background-color: var(--color-primary); color: #ffffff; padding: var(--space-xl) 0 var(--space-lg) 0; position: relative; overflow: hidden; }
+    .eyebrow { color: var(--color-secondary-light); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.875rem; display: block; margin-bottom: 0.5rem; }
+    .hero h1 { color: #ffffff; font-size: 2rem; margin-bottom: var(--space-md); }
+    .hero p { color: #94a3b8; font-size: 1.125rem; margin-bottom: var(--space-md); }
+    .sub-cta { font-size: 0.75rem; margin-top: 0.5rem; color: #64748b; text-align: center; }
+    .hero-grid { display: flex; flex-direction: column; gap: var(--space-lg); }
+    .hero-placeholder { min-height: 400px; background-color: #1e293b; border-color: #334155; }
+    
+    @media (min-width: 768px) {
+        .hero h1 { font-size: 3rem; }
+        .hero-grid { flex-direction: row; align-items: center; }
+        .hero-content, .hero-visual { flex: 1; }
+    }
+</style>

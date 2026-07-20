@@ -1,0 +1,73 @@
+---
+import CtaButton from './CtaButton.astro';
+---
+<section class="section-padding">
+    <div class="container">
+        <div class="text-center">
+            <h2 style="margin-bottom: var(--space-sm);">¿Qué descubrirás en este programa?</h2>
+            <p style="max-width: 600px; margin: 0 auto;">Un recorrido estructurado paso a paso, diseñado específicamente para quienes dan sus primeros pasos en el ecosistema freelance.</p>
+        </div>
+
+        <div class="modules-grid">
+            <div class="module-card">
+                <div class="module-icon">1</div>
+                <div>
+                    <h3>Fundamentos y Mindset</h3>
+                    <p>Entiende cómo funciona la plataforma por dentro y desarrolla la mentalidad adecuada para gestionar tus propios servicios.</p>
+                </div>
+            </div>
+            <div class="module-card">
+                <div class="module-icon">2</div>
+                <div>
+                    <h3>Creación de Perfil Atractivo</h3>
+                    <p>Aprende a estructurar tu biografía, foto y descripción para transmitir confianza a clientes potenciales de todo el mundo.</p>
+                </div>
+            </div>
+            <div class="module-card">
+                <div class="module-icon">3</div>
+                <div>
+                    <h3>Identificación de Habilidades</h3>
+                    <p>Descubre cómo transformar lo que ya sabes hacer (o lo que puedes aprender rápido) en servicios digitales empaquetados ("Gigs").</p>
+                </div>
+            </div>
+            <div class="module-card">
+                <div class="module-icon">4</div>
+                <div>
+                    <h3>Estructura de Gigs</h3>
+                    <p>El método paso a paso para titular, describir y establecer precios a tus servicios de manera clara y competitiva.</p>
+                </div>
+            </div>
+            <div class="module-card">
+                <div class="module-icon">5</div>
+                <div>
+                    <h3>Atención al Cliente</h3>
+                    <p>Técnicas de comunicación efectiva para responder mensajes, negociar requerimientos y asegurar la satisfacción del usuario.</p>
+                </div>
+            </div>
+            <div class="module-card">
+                <div class="module-icon">6</div>
+                <div>
+                    <h3>Entrega y Escalado Básico</h3>
+                    <p>Cómo organizar tus entregas a tiempo y estrategias iniciales para conseguir tus primeras reseñas positivas.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center" style="margin-top: var(--space-lg);">
+            <CtaButton text="Inscribirme al Programa Ahora" utmSrc="modulos_btn" />
+        </div>
+    </div>
+</section>
+
+<style>
+    .modules-grid { display: grid; grid-template-columns: 1fr; gap: var(--space-sm); margin-top: var(--space-md); }
+    .module-card { background: var(--color-surface); border: 1px solid #e2e8f0; padding: var(--space-md); border-radius: var(--radius-md); display: flex; gap: var(--space-sm); align-items: flex-start; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    .module-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+    .module-icon { background: var(--color-secondary-light); color: var(--color-secondary); width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1.5rem; font-weight: bold; }
+    .module-card h3 { font-size: 1.125rem; margin-bottom: 0.25rem; }
+    .module-card p { font-size: 0.9rem; margin: 0; color: var(--color-text-muted); }
+    
+    @media (min-width: 768px) {
+        .modules-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+</style>

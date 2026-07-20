@@ -1,0 +1,38 @@
+// src/components/Problema.astro
+---
+---
+<section class="problem-section section-padding">
+    <div class="container">
+        <div class="text-center" style="max-width: 800px; margin: 0 auto;">
+            <h2 style="margin-bottom: var(--space-sm);">El escenario actual exige nuevas alternativas</h2>
+            <p>El mercado laboral está cambiando rápidamente. Hoy en día, depender de un solo enfoque tradicional puede limitar tus opciones de crecimiento y flexibilidad.</p>
+        </div>
+        
+        <div class="problem-grid">
+            <div class="problem-card">
+                <h3>Evolución del Trabajo</h3>
+                <p>El modelo tradicional presencial ya no es la única vía. El mundo digital ofrece alternativas válidas para profesionales y principiantes.</p>
+            </div>
+            <div class="problem-card">
+                <h3>Búsqueda de Flexibilidad</h3>
+                <p>Cada vez más personas buscan la autonomía para gestionar sus propios proyectos y organizar sus horarios de forma independiente.</p>
+            </div>
+            <div class="problem-card">
+                <h3>Barreras Geográficas</h3>
+                <p>Limitarse al mercado local reduce las oportunidades. El internet permite conectar tus habilidades con necesidades a nivel global.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .problem-section { background-color: var(--color-surface); }
+    .problem-grid { display: grid; grid-template-columns: 1fr; gap: var(--space-md); margin-top: var(--space-md); }
+    .problem-card { background: var(--color-bg); padding: var(--space-md); border-radius: var(--radius-md); border-left: 4px solid var(--color-secondary); }
+    .problem-card h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
+    .problem-card p { font-size: 0.95rem; color: var(--color-text-muted); margin: 0; }
+    
+    @media (min-width: 768px) {
+        .problem-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+</style>
