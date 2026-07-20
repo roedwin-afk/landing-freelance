@@ -1,13 +1,13 @@
 ---
 import { Image } from 'astro:assets';
-// import solucionImg from '../assets/solucion.jpg'; // Descomentar al tener la imagen
+import solucionImg from '../assets/solucion.png'; // Descomentar al tener la imagen
 ---
 <section class="solution-section section-padding">
     <div class="container solution-grid">
         <div class="solution-visual">
             <div class="img-placeholder" style="background-color: #ccfbf1; border-color: #5eead4; color: var(--color-secondary);">
-                [FOTO: Persona joven, relajada trabajando en una laptop desde su casa o un café, transmitiendo tranquilidad y enfoque]
-                <!-- <Image src={solucionImg} alt="Trabajando desde casa" width={500} /> -->
+                <!-- [FOTO: Persona joven, relajada trabajando en una laptop desde su casa o un café, transmitiendo tranquilidad y enfoque] -->
+                <Image src={solucionImg} alt="Trabajando desde casa" width={500} />
             </div>
         </div>
         <div class="solution-content">
