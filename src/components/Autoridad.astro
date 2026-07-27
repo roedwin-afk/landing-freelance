@@ -17,6 +17,17 @@ import autorImg from '../assets/foto.png'; // Descomentar al tener la imagen
                 <p>Hola, soy Edwin. Empecé en Fiverr después de perder mi empleo, buscando una salida rápida a la incertidumbre.</p>
                 <p>Conseguí mi primer cliente, que se volvió recurrente por varios meses, y desde entonces he mantenido una calificación de 5 estrellas ofreciendo servicios de automatización de procesos (Power Automate, RPA), desarrollo web y automatización de Excel/Word a clientes internacionales.</p>
                 <p>Ese comienzo me enseñó la diferencia entre empezar con desesperación y empezar con estructura. Por eso te recomiendo este programa: te da justo esa base sólida desde el principio, sin tener que aprenderlo del modo dificil como me tocó a mí.</p>
+
+                <div class="review-card">
+                    <div class="review-stars" aria-label="5 de 5 estrellas">★★★★★</div>
+                    <p class="review-quote">"Working with Edwin exceeded my expectations. His level of professionalism is incredible. He kept me updated every day on the progress of the work, which gave me great confidence that everything was going very well."</p>
+                    <div class="review-ratings">
+                        <span>Communication <strong>5.0</strong></span>
+                        <span>Quality <strong>5.0</strong></span>
+                        <span>Value <strong>5.0</strong></span>
+                    </div>
+                    <span class="review-source">Reseña verificada en Fiverr &middot; cliente internacional</span>
+                </div>
             </div>
         </div>
     </div>
@@ -27,24 +38,37 @@ import autorImg from '../assets/foto.png'; // Descomentar al tener la imagen
     .authority-content { display: flex; flex-direction: column; gap: var(--space-md); align-items: center; background: var(--color-primary); color: white; padding: var(--space-md); border-radius: var(--radius-lg); }
     .authority-content h2 { color: white; }
     .authority-content p { color: #cbd5e1; }
-    
-    .profile-img-wrapper { 
-        width: 100%; 
-        max-width: 300px; 
+
+    .profile-img-wrapper {
+        width: 100%;
+        max-width: 300px;
         aspect-ratio: 1 / 1; /* fuerza cuadrado, cambia a 3/4 si prefieres retrato */
         overflow: hidden;
         border-radius: var(--radius-lg);
     }
-    
+
     .profile-img-wrapper img {
         width: 100%;
         height: 100%;
         object-fit: cover;
         object-position: center top; /* ajusta si la cara queda muy arriba/abajo */
     }
-    
+
     .eyebrow { color: var(--color-secondary-light); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.875rem; }
-    
+
+    .review-card {
+        margin-top: var(--space-sm);
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: var(--radius-md);
+        padding: var(--space-sm) var(--space-md);
+    }
+    .review-stars { color: var(--color-accent); letter-spacing: 2px; font-size: 1rem; margin-bottom: 0.4rem; }
+    .review-quote { font-style: italic; color: #e2e8f0 !important; font-size: 0.95rem; margin-bottom: 0.6rem !important; }
+    .review-ratings { display: flex; flex-wrap: wrap; gap: 1rem; font-size: 0.8rem; color: #94a3b8; margin-bottom: 0.4rem; }
+    .review-ratings strong { color: #ffffff; }
+    .review-source { font-size: 0.75rem; color: #64748b; }
+
     @media (min-width: 768px) {
         .authority-content { flex-direction: row; padding: var(--space-lg); text-align: left; }
         .authority-text { flex: 2; }
