@@ -13,7 +13,10 @@ import heroImg from "../assets/hero-mockup2.png";
                 clientes fuera de mi país
             </h1>
             <p>
-                No tenía experiencia vendiendo servicios digitales, ni sabía qué poner en mi perfil para que alguien confiara en mí. Así aprendí, a la fuerza, lo que hoy encontrarás estructurado paso a paso en este programa — sin depender de la ciudad ni de un jefe.
+                No tenía experiencia vendiendo servicios digitales, ni sabía qué
+                poner en mi perfil para que alguien confiara en mí. Así aprendí,
+                a la fuerza, lo que hoy encontrarás estructurado paso a paso en
+                este programa — sin depender de la ciudad ni de un jefe.
             </p>
 
             <CtaButton text="Quiero Conocer el Método" utmSrc="hero_btn" />
@@ -21,7 +24,6 @@ import heroImg from "../assets/hero-mockup2.png";
         </div>
         <div class="hero-visual">
             <div class="img-placeholder hero-placeholder">
-                <!-- [FOTO: Mockup de alta calidad mostrando el curso en una Laptop y un Smartphone] -->
                 <Image
                     src={heroImg}
                     alt="Curso Freelance Lite: método para conseguir clientes internacionales"
@@ -51,7 +53,8 @@ import heroImg from "../assets/hero-mockup2.png";
     }
     .hero h1 {
         color: #ffffff;
-        font-size: 2rem;
+        font-size: clamp(1.75rem, 6vw + 0.5rem, 3rem);
+        line-height: 1.15;
         margin-bottom: var(--space-md);
     }
     .hero p {
@@ -70,16 +73,25 @@ import heroImg from "../assets/hero-mockup2.png";
         flex-direction: column;
         gap: var(--space-lg);
     }
+    .hero-visual {
+        order: -1;
+        display: flex;
+        justify-content: center;
+    }
+
+    .hero-img {
+        width: 100%;
+        max-width: 500px;
+        height: auto;
+        display: block;
+    }
     .hero-placeholder {
         min-height: 400px;
         background-color: #1e293b;
         border-color: #334155;
     }
 
-    @media (min-width: 768px) {
-        .hero h1 {
-            font-size: 3rem;
-        }
+    @media (min-width: 1200px) {
         .hero-grid {
             flex-direction: row;
             align-items: center;
@@ -87,6 +99,7 @@ import heroImg from "../assets/hero-mockup2.png";
         .hero-content,
         .hero-visual {
             flex: 1;
+            order: 0;
         }
     }
 </style>
