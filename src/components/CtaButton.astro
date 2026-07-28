@@ -6,10 +6,12 @@ interface Props {
 
 const { text, utmSrc } = Astro.props;
 const baseUrl = import.meta.env.HOTMART_BASE_URL;
-const finalUrl = `${baseUrl}?src=${utmSrc}`;
+const finalUrl = `${baseUrl}&src=${utmSrc}`;
 ---
 
-<a href={finalUrl} class="btn-cta capi-trigger" data-url={finalUrl}>{text}</a>
+<a href={finalUrl} class="btn-cta capi-trigger" data-url={finalUrl} data-src={utmSrc}>
+    {text}
+</a>
 
 <style>
     .btn-cta {
@@ -40,30 +42,30 @@ const finalUrl = `${baseUrl}?src=${utmSrc}`;
 </style>
 
 <script>
-    // Le indicamos a TypeScript que fbq existe globalmente
-    declare var fbq: any;
+declare var fbq: any;
 
-    const buttons = document.querySelectorAll('.capi-trigger');
-    buttons.forEach(btn => {
-        btn.addEventListener('click', async (e) => {
-            e.preventDefault();
-            const targetUrl = btn.getAttribute('data-url');
-            
-            if (typeof fbq !== 'undefined') {
-                fbq('track', 'InitiateCheckout');
-            }
+const buttons = document.querySelectorAll('.capi-trigger');
+buttons.forEach(btn => {
+    btn.addEventListener('click', async (e) => {
+        e.preventDefault();
+        const targetUrl = btn.getAttribute('data-url');
+        const src = btn.getAttribute('data-src'); // nuevo
 
-            try {
-                await fetch('/api/capi', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ eventName: 'InitiateCheckout' })
-                });
-            } catch (err) {
-                console.error('CAPI Error', err);
-            }
+        if (typeof fbq !== 'undefined') {
+            fbq('track', 'InitiateCheckout', { content_name: src }); // ahora sí lleva el dato
+        }
 
-            if(targetUrl) window.location.href = targetUrl;
-        });
+        try {
+            await fetch('/api/capi', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ eventName: 'InitiateCheckout', src }) // ahora sí lo manda
+            });
+        } catch (err) {
+            console.error('CAPI Error', err);
+        }
+
+        if (targetUrl) window.location.href = targetUrl;
     });
+});
 </script>

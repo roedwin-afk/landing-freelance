@@ -5,7 +5,7 @@ export const POST: APIRoute = async ({ request }) => {
     const pixelId = import.meta.env.META_PIXEL_ID;
     const token = import.meta.env.META_ACCESS_TOKEN;
     const testEventCode = import.meta.env.META_TEST_EVENT_CODE; // Espacio para configuración futura
-    
+
     if (!pixelId || !token) {
         return new Response(JSON.stringify({ error: 'Faltan credenciales CAPI' }), { status: 500 });
     }
@@ -13,6 +13,7 @@ export const POST: APIRoute = async ({ request }) => {
     try {
         const body = await request.json();
         const eventName = body.eventName || 'InitiateCheckout';
+        const src = body.src || 'unknown'; // nuevo: de dónde vino el clic (hero_btn, modulos_btn, etc.)
         const eventSourceUrl = request.headers.get('referer') || '';
         const clientIp = request.headers.get('x-forwarded-for') || request.headers.get('cf-connecting-ip') || '';
         const userAgent = request.headers.get('user-agent') || '';
@@ -27,6 +28,9 @@ export const POST: APIRoute = async ({ request }) => {
                     user_data: {
                         client_ip_address: clientIp,
                         client_user_agent: userAgent
+                    },
+                    custom_data: {
+                        content_name: src // aquí viaja el dato de la posición del botón
                     }
                 }
             ]
