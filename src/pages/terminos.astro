@@ -1,0 +1,103 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Footer from '../components/Footer.astro';
+
+const lastUpdated = '4 de agosto de 2026';
+---
+
+<Layout
+	title="Términos y Condiciones | Fundamentos Freelance Lite"
+	description="Términos y condiciones de uso de este sitio y de la promoción del programa Fiverr Freelance Lite."
+>
+	<main class="legal-section section-padding">
+		<div class="container legal-container">
+			<a href="/" class="back-link">&larr; Volver al inicio</a>
+			<h1>Términos y Condiciones</h1>
+			<p class="updated">Última actualización: {lastUpdated}</p>
+
+			<h2>1. Sobre este sitio</h2>
+			<p>
+				Este sitio web es una página informativa y promocional operada de forma
+				independiente por Edwin Villalobos, con el propósito de presentar el
+				programa educativo <strong>"Fiverr Freelance Lite"</strong>. Este sitio
+				no es el vendedor del producto ni procesa pagos directamente.
+			</p>
+
+			<h2>2. Relación de afiliación</h2>
+			<p>
+				Quien opera este sitio actúa como <strong>afiliado independiente</strong> del
+				programa "Fiverr Freelance Lite" y recibe una comisión por cada venta
+				generada a través de los enlaces presentes en esta página. Esta relación
+				de afiliación no constituye sociedad, representación legal ni relación
+				laboral con el productor del curso ni con Hotmart.
+			</p>
+
+			<h2>3. Venta, pago y entrega del producto</h2>
+			<p>
+				La compra del programa se procesa en su totalidad a través de la
+				plataforma <strong>Hotmart</strong>, quien actúa como intermediario de
+				pago y responsable de la entrega del acceso al contenido. Al completar
+				tu compra, aceptas también los
+				<a href="https://hotmart.com/es/politica-privacidad" target="_blank" rel="noopener noreferrer">
+					Términos de Uso y Políticas de Hotmart
+				</a>, que rigen el proceso de pago, entrega, soporte y reembolsos.
+			</p>
+			<p>
+				Este sitio no almacena datos de tarjetas ni procesa transacciones; toda
+				la información de pago es gestionada directamente por Hotmart bajo sus
+				propios estándares de seguridad.
+			</p>
+
+			<h2>4. Uso permitido del sitio</h2>
+			<p>
+				Puedes navegar y utilizar este sitio únicamente con fines informativos
+				y para evaluar la inscripción al programa. Queda prohibido su uso para
+				fines fraudulentos, de extracción automatizada de contenido (scraping)
+				o cualquier actividad que busque vulnerar su funcionamiento normal.
+			</p>
+
+			<h2>5. Propiedad intelectual</h2>
+			<p>
+				Los textos, imágenes y diseño de esta página son propiedad de quien la
+				opera o se usan bajo licencia adecuada. El contenido del curso
+				"Fiverr Freelance Lite" es propiedad de su respectivo productor en
+				Hotmart. Fiverr es una marca registrada de Fiverr International Ltd.;
+				este sitio no está afiliado, respaldado ni patrocinado por Fiverr.
+			</p>
+
+			<h2>6. Limitación de responsabilidad</h2>
+			<p>
+				Este sitio se ofrece "tal cual". No garantizamos disponibilidad
+				ininterrumpida, ausencia de errores, ni resultados específicos derivados
+				de la aplicación del contenido del programa. Consulta también nuestro
+				<a href="/descargo">Descargo de Responsabilidad</a>.
+			</p>
+
+			<h2>7. Modificaciones</h2>
+			<p>
+				Estos términos pueden actualizarse en cualquier momento para reflejar
+				cambios en el sitio o en la oferta promocionada. La fecha de la última
+				actualización se indica al inicio de esta página.
+			</p>
+
+			<h2>8. Contacto</h2>
+			<p>
+				Para consultas sobre estos términos, puedes escribir a:
+				<strong>[tu correo de contacto]</strong>.
+			</p>
+		</div>
+	</main>
+	<Footer />
+</Layout>
+
+<style>
+	.legal-section { background-color: var(--color-surface); }
+	.legal-container { max-width: 800px; }
+	.legal-container .back-link { display: inline-block; margin-bottom: var(--space-md); color: var(--color-secondary); font-weight: 600; text-decoration: none; }
+	.legal-container .back-link:hover { text-decoration: underline; }
+	.legal-container h1 { margin-bottom: var(--space-xs); }
+	.legal-container .updated { color: var(--color-text-muted); font-size: 0.875rem; margin-bottom: var(--space-md); }
+	.legal-container h2 { margin-top: var(--space-md); margin-bottom: var(--space-xs); font-size: 1.25rem; }
+	.legal-container p { color: var(--color-text-main); }
+	.legal-container a { color: var(--color-secondary); }
+</style>

@@ -9,8 +9,8 @@ import heroImg from "../assets/hero-mockup2.png";
         <div class="hero-content">
             <span class="eyebrow">Historia Real</span>
             <h1>
-                Perdí mi empleo y en pocos meses empecé a cobrar en dólares para
-                clientes fuera de mi país
+                Cómo pasé de perder mi empleo a trabajar con clientes
+                internacionales como freelancer
             </h1>
             <p>
                 No tenía experiencia vendiendo servicios digitales, ni sabía qué
@@ -21,13 +21,18 @@ import heroImg from "../assets/hero-mockup2.png";
 
             <CtaButton text="Quiero Conocer el Método" utmSrc="hero_btn" />
             <p class="sub-cta">Acceso inmediato al programa completo</p>
+
+            <div class="trust-badge">
+                <span class="stars">★★★★★</span>
+                <span class="trust-text">5.0 en Fiverr &middot; clientes internacionales verificados</span>
+            </div>
         </div>
         <div class="hero-visual">
-            <div class="img-placeholder hero-placeholder">
+            <div class="hero-photo-wrapper">
                 <Image
                     src={heroImg}
-                    alt="Curso Freelance Lite: método para conseguir clientes internacionales"
-                    width={600}
+                    alt="Edwin, freelancer internacional en Power Automate, RPA y desarrollo web"
+                    width={480}
                 />
             </div>
         </div>
@@ -66,40 +71,59 @@ import heroImg from "../assets/hero-mockup2.png";
         font-size: 0.75rem;
         margin-top: 0.5rem;
         color: #64748b;
-        text-align: center;
+    }
+    .trust-badge {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-top: var(--space-md);
+        padding-top: var(--space-md);
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        flex-wrap: wrap;
+    }
+    .trust-badge .stars {
+        color: #fbbf24;
+        letter-spacing: 1px;
+        font-size: 0.875rem;
+    }
+    .trust-badge .trust-text {
+        color: #94a3b8;
+        font-size: 0.8125rem;
     }
     .hero-grid {
         display: flex;
-        flex-direction: column;
+        flex-direction: column-reverse;
         gap: var(--space-lg);
+        align-items: center;
     }
     .hero-visual {
-        order: -1;
         display: flex;
         justify-content: center;
     }
-
-    .hero-img {
+    .hero-photo-wrapper {
         width: 100%;
-        max-width: 500px;
-        height: auto;
+        max-width: 320px;
+        aspect-ratio: 1 / 1;
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .hero-photo-wrapper :global(img) {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
         display: block;
     }
-    .hero-placeholder {
-        min-height: 400px;
-        background-color: #1e293b;
-        border-color: #334155;
-    }
 
-    @media (min-width: 1200px) {
+    @media (min-width: 900px) {
         .hero-grid {
             flex-direction: row;
             align-items: center;
+            text-align: left;
         }
-        .hero-content,
-        .hero-visual {
-            flex: 1;
-            order: 0;
-        }
+        .hero-content { flex: 3; }
+        .hero-visual { flex: 2; justify-content: flex-end; }
+        .trust-badge { justify-content: flex-start; }
     }
 </style>

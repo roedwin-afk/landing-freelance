@@ -1,0 +1,90 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Footer from '../components/Footer.astro';
+
+const lastUpdated = '4 de agosto de 2026';
+---
+
+<Layout
+	title="Descargo de Responsabilidad | Fundamentos Freelance Lite"
+	description="Descargo de responsabilidad sobre resultados, afiliación y naturaleza educativa del contenido de este sitio."
+>
+	<main class="legal-section section-padding">
+		<div class="container legal-container">
+			<a href="/" class="back-link">&larr; Volver al inicio</a>
+			<h1>Descargo de Responsabilidad</h1>
+			<p class="updated">Última actualización: {lastUpdated}</p>
+
+			<h2>1. Contenido educativo, no una promesa de resultados</h2>
+			<p>
+				El programa "Fiverr Freelance Lite" y esta página describen una
+				metodología educativa para estructurar un perfil freelance y ofrecer
+				servicios digitales. Los resultados mencionados o insinuados en esta
+				página —incluida la historia personal compartida— reflejan una
+				experiencia individual y <strong>no constituyen una garantía de
+				ingresos, clientes o resultados</strong> para ninguna persona que
+				tome el programa.
+			</p>
+			<p>
+				Todo esfuerzo de trabajo independiente depende de factores fuera de
+				nuestro control: tiempo dedicado, habilidades previas, condiciones del
+				mercado y esfuerzo aplicado. No aseguramos que obtendrás un cliente,
+				un ingreso determinado, ni ningún resultado específico.
+			</p>
+
+			<h2>2. Divulgación de afiliación</h2>
+			<p>
+				Quien opera este sitio es <strong>afiliado independiente</strong> del
+				programa promocionado y recibe una comisión económica por cada venta
+				realizada a través de los enlaces de esta página. Esta divulgación se
+				hace de forma transparente para que sepas que existe un incentivo
+				económico detrás de la recomendación.
+			</p>
+
+			<h2>3. Sin relación con Fiverr, Meta ni Hotmart</h2>
+			<p>
+				Este sitio no está afiliado, respaldado ni patrocinado por
+				<strong>Fiverr International Ltd.</strong>, ni por
+				<strong>Meta Platforms, Inc.</strong> (Facebook/Instagram). Tampoco
+				representa oficialmente a <strong>Hotmart</strong>; actúa únicamente
+				como afiliado que promueve un producto disponible en su marketplace.
+			</p>
+
+			<h2>4. No es asesoría financiera, legal ni laboral</h2>
+			<p>
+				El contenido de este sitio y del programa tiene fines educativos y no
+				sustituye asesoría financiera, legal, fiscal o laboral profesional.
+				Antes de tomar decisiones sobre tus ingresos, impuestos o estatus como
+				trabajador independiente en tu país, consulta con un profesional
+				calificado.
+			</p>
+
+			<h2>5. Testimonios</h2>
+			<p>
+				Los testimonios mostrados corresponden a experiencias reales de
+				clientes de servicios freelance prestados de forma independiente por
+				quien opera este sitio, y se presentan como referencia de trayectoria
+				profesional. No representan una garantía de que el programa producirá
+				resultados similares para cada persona.
+			</p>
+
+			<h2>6. Contacto</h2>
+			<p>
+				Si tienes dudas sobre este descargo, escribe a
+				<strong>[tu correo de contacto]</strong>.
+			</p>
+		</div>
+	</main>
+	<Footer />
+</Layout>
+
+<style>
+	.legal-section { background-color: var(--color-surface); }
+	.legal-container { max-width: 800px; }
+	.legal-container .back-link { display: inline-block; margin-bottom: var(--space-md); color: var(--color-secondary); font-weight: 600; text-decoration: none; }
+	.legal-container .back-link:hover { text-decoration: underline; }
+	.legal-container h1 { margin-bottom: var(--space-xs); }
+	.legal-container .updated { color: var(--color-text-muted); font-size: 0.875rem; margin-bottom: var(--space-md); }
+	.legal-container h2 { margin-top: var(--space-md); margin-bottom: var(--space-xs); font-size: 1.25rem; }
+	.legal-container p { color: var(--color-text-main); }
+</style>

@@ -1,0 +1,100 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Footer from '../components/Footer.astro';
+
+const lastUpdated = '4 de agosto de 2026';
+---
+
+<Layout
+	title="Política de Privacidad | Fundamentos Freelance Lite"
+	description="Cómo se recopila y utiliza la información de los visitantes de este sitio."
+>
+	<main class="legal-section section-padding">
+		<div class="container legal-container">
+			<a href="/" class="back-link">&larr; Volver al inicio</a>
+			<h1>Política de Privacidad</h1>
+			<p class="updated">Última actualización: {lastUpdated}</p>
+
+			<h2>1. Qué información recopilamos</h2>
+			<p>
+				Este sitio no incluye actualmente formularios de registro, por lo que
+				no solicitamos ni almacenamos directamente tu nombre, correo
+				electrónico o número de teléfono. La información que se recopila es
+				técnica y se genera automáticamente por tu navegador al visitar la
+				página:
+			</p>
+			<ul>
+				<li>Dirección IP</li>
+				<li>Tipo de navegador y dispositivo (user agent)</li>
+				<li>Página de referencia (de dónde llegaste al sitio)</li>
+				<li>Interacciones con los botones de la página (qué botón presionaste)</li>
+			</ul>
+
+			<h2>2. Meta Pixel y API de Conversiones (CAPI)</h2>
+			<p>
+				Este sitio utiliza el <strong>Meta Pixel</strong> y la
+				<strong>API de Conversiones de Meta</strong> para medir el rendimiento
+				de campañas publicitarias en Facebook e Instagram. Estas herramientas
+				envían a Meta Platforms, Inc. eventos como la visita a la página
+				(<em>PageView</em>) y el clic en los botones de inscripción
+				(<em>InitiateCheckout</em>), junto con datos técnicos como tu IP y
+				user agent, con el único fin de optimizar la entrega de anuncios.
+			</p>
+			<p>
+				Puedes conocer cómo Meta trata esta información en su
+				<a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener noreferrer">
+					Política de Privacidad
+				</a>. Si prefieres no ser incluido en esta medición, puedes usar las
+				herramientas de control de anuncios de tu cuenta de Facebook/Instagram
+				o bloquear cookies de terceros en tu navegador.
+			</p>
+
+			<h2>3. Datos que recopila Hotmart</h2>
+			<p>
+				Si decides inscribirte al programa, el proceso de pago y registro se
+				realiza completamente dentro de la plataforma de <strong>Hotmart</strong>,
+				quien recopila tu nombre, correo electrónico y datos de pago conforme a
+				su propia
+				<a href="https://hotmart.com/es/politica-privacidad" target="_blank" rel="noopener noreferrer">
+					Política de Privacidad
+				</a>. Este sitio no tiene acceso ni almacena esa información.
+			</p>
+
+			<h2>4. Cookies</h2>
+			<p>
+				Este sitio puede usar cookies técnicas y de terceros (Meta Pixel) para
+				el funcionamiento y medición descritos arriba. No usamos cookies para
+				vender tu información a terceros.
+			</p>
+
+			<h2>5. Tus derechos</h2>
+			<p>
+				Puedes solicitar información sobre los datos técnicos asociados a tu
+				visita, o pedir que dejemos de procesarlos donde sea técnicamente
+				posible, escribiendo a <strong>[tu correo de contacto]</strong>.
+			</p>
+
+			<h2>6. Cambios a esta política</h2>
+			<p>
+				Podemos actualizar esta política si cambian las herramientas de
+				medición o el funcionamiento del sitio (por ejemplo, si se agrega un
+				formulario de contacto o un chat de WhatsApp). La fecha de la última
+				actualización se indica al inicio.
+			</p>
+		</div>
+	</main>
+	<Footer />
+</Layout>
+
+<style>
+	.legal-section { background-color: var(--color-surface); }
+	.legal-container { max-width: 800px; }
+	.legal-container .back-link { display: inline-block; margin-bottom: var(--space-md); color: var(--color-secondary); font-weight: 600; text-decoration: none; }
+	.legal-container .back-link:hover { text-decoration: underline; }
+	.legal-container h1 { margin-bottom: var(--space-xs); }
+	.legal-container .updated { color: var(--color-text-muted); font-size: 0.875rem; margin-bottom: var(--space-md); }
+	.legal-container h2 { margin-top: var(--space-md); margin-bottom: var(--space-xs); font-size: 1.25rem; }
+	.legal-container p, .legal-container li { color: var(--color-text-main); }
+	.legal-container ul { padding-left: var(--space-md); margin-bottom: var(--space-sm); }
+	.legal-container a { color: var(--color-secondary); }
+</style>
