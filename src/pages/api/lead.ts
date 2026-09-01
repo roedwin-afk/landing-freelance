@@ -1,8 +1,9 @@
 // src/pages/api/lead.ts
 import type { APIRoute } from 'astro';
+import { env } from 'cloudflare:workers';
 
 export const POST: APIRoute = async ({ request }) => {
-    const webhookUrl = import.meta.env.N8N_LEAD_WEBHOOK_URL;
+    const webhookUrl = env.N8N_LEAD_WEBHOOK_URL;
 
     if (!webhookUrl) {
         return new Response(JSON.stringify({ error: 'Falta configurar webhook de n8n' }), { status: 500 });
